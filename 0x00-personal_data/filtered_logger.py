@@ -25,7 +25,7 @@ def filter_datum(
 
 
 def get_logger() -> logging.Logger:
-    """Creates a new logger for user data.
+    """new logger for user data.
     """
     logger = logging.getLogger("user_data")
     stream_handler = logging.StreamHandler()
@@ -37,7 +37,7 @@ def get_logger() -> logging.Logger:
 
 
 def get_db() -> mysql.connector.connection.MySQLConnection:
-    """Creates a connector to a database.
+    """connector to a database.
     """
     db_host = os.getenv("PERSONAL_DATA_DB_HOST", "localhost")
     db_name = os.getenv("PERSONAL_DATA_DB_NAME", "")
@@ -89,7 +89,7 @@ class RedactingFormatter(logging.Formatter):
         self.fields = fields
 
     def format(self, record: logging.LogRecord) -> str:
-        """formats record e LogRecord.
+        """formats a LogRecord.
         """
         msg = super(RedactingFormatter, self).format(record)
         txt = filter_datum(self.fields, self.REDACTION, msg, self.SEPARATOR)
@@ -98,4 +98,3 @@ class RedactingFormatter(logging.Formatter):
 
 if __name__ == "__main__":
     main()
-
