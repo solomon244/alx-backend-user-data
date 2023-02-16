@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""authentication-related routines.
+"""A module for authentication-related routines.
 """
 import bcrypt
 from uuid import uuid4
@@ -41,7 +41,7 @@ class Auth:
         raise ValueError("User {} already exists".format(email))
 
     def valid_login(self, email: str, password: str) -> bool:
-        """Checks if login details are valid.
+        """Checks if a user's login details are valid.
         """
         user = None
         try:
@@ -118,4 +118,3 @@ class Auth:
             hashed_password=new_password_hash,
             reset_token=None,
         )
-
