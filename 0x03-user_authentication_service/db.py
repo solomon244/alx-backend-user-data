@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""DB class
+"""DB class.
 """
 from sqlalchemy import create_engine, tuple_
 from sqlalchemy.exc import InvalidRequestError
@@ -78,4 +78,3 @@ class DB:
             synchronize_session=False,
         )
         self._session.commit()
-
